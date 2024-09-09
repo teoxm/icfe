@@ -8,10 +8,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+<<<<<<< HEAD
 import java.util.Map;
 import java.util.List;
 
 import static datos.Conexion.actualzarEstadoIngreso;
+=======
+
+>>>>>>> 658a0c122249caf362cff3de3da95bc28ad7dadd
 import static datos.Conexion.validarVisitante;
 
 public class RegistroIngreso extends JPanel {
@@ -45,9 +49,12 @@ public class RegistroIngreso extends JPanel {
         Oyente2 oyente2 = new Oyente2(this.frame);
         registrar.addActionListener(oyente2);
 
+<<<<<<< HEAD
         OyenteSalida oyesteSalida = new OyenteSalida(this.frame);
         salida.addActionListener(oyesteSalida);
 
+=======
+>>>>>>> 658a0c122249caf362cff3de3da95bc28ad7dadd
 
     }
 
@@ -68,6 +75,7 @@ public class RegistroIngreso extends JPanel {
                 if (validarVisitante(numeroCedula) ) {
                     System.out.println("Visitante validado correctamente.");
 
+<<<<<<< HEAD
 
 
                     boolean esVisit = Conexion.esVisi(numeroCedula);
@@ -104,6 +112,22 @@ public class RegistroIngreso extends JPanel {
 
 
 
+=======
+                    ResultSet informacionVisitante = Conexion.obtenerInformacionVisitante(numeroCedula);
+
+                    if (informacionVisitante != null && informacionVisitante.next()) {
+                        //OPTENER LA INFORMACION DEL RESULTSET
+
+                        String primerNombre = informacionVisitante.getString("primerNombre");
+                        String segundoNombre = informacionVisitante.getString("segundoNombre");
+                        String primerApellido = informacionVisitante.getString("primerApellido");
+                        String segundoApellido = informacionVisitante.getString("segundoApellido");
+                        String unidad = informacionVisitante.getString("unidad");
+                        int idVisitante = informacionVisitante.getInt("id");
+
+                        IngresoDefinitivo ingresoDefinito = new IngresoDefinitivo();
+                        frame.lamina4.mostrarLamina(ingresoDefinito);
+>>>>>>> 658a0c122249caf362cff3de3da95bc28ad7dadd
 
                     } else {
 
@@ -126,6 +150,7 @@ public class RegistroIngreso extends JPanel {
 
         }
     }
+<<<<<<< HEAD
     public class OyenteSalida implements ActionListener {
 
         private Frame3 frame;
@@ -169,4 +194,6 @@ public class RegistroIngreso extends JPanel {
 
         }
     }
+=======
+>>>>>>> 658a0c122249caf362cff3de3da95bc28ad7dadd
 }

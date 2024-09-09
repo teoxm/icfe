@@ -7,6 +7,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="icfe" />
+<<<<<<< HEAD
+=======
+        <module name="icfeV1" />
+>>>>>>> 658a0c122249caf362cff3de3da95bc28ad7dadd
       </profile>
     </annotationProcessing>
   </component>

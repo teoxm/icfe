@@ -3,10 +3,13 @@ package datos;
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+=======
+>>>>>>> 658a0c122249caf362cff3de3da95bc28ad7dadd
 
 public class Conexion {
     private static final String JDBC_URL = "jdbc:mysql://localhost:3306/scaicfe?SSL=false&useTimezone=true&serverTimezone=UTC&allowPublicKeyRetrieval=true";
@@ -63,8 +66,11 @@ public class Conexion {
 
     }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 658a0c122249caf362cff3de3da95bc28ad7dadd
     public static boolean validarUsuario(String numeroIdentificacion, String contrasena) {
         try (Connection connection = getConection();
              PreparedStatement statement = connection.prepareStatement("SELECT * FROM usuarios WHERE numeroIdentificacion=? AND contrasena = ?")) {
@@ -146,11 +152,19 @@ public class Conexion {
     }
     public static boolean registrarIngreso(String primmerNombre, String primerApellido, String segundoApellido
     , String unidad, String tipoVehiculo, String placaVehiculo, String colorVehiculo, LocalDate fechaIngreso,LocalTime horaIngreso , LocalTime horaSalida,
+<<<<<<< HEAD
             String segundoNombre, boolean estado, LocalDate fechaSalida, int idVisitante)throws SQLException{
         try (Connection conection = getConection()){
             String query = "INSERT INTO ingreso(primerNombre,  primerApellido, segundoApellido, " +
                     "unidad, tipoVehiculo, placaVehiculo, colorVehiculo,  fechaIngreso,  horaIngreso, horaSalida,segundoNombre, estado, fechaSalida, idVisitante )" +
                     "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+=======
+            String segundoNombre, boolean estado, LocalDate fechaSalida)throws SQLException{
+        try (Connection conection = getConection()){
+            String query = "INSERT INTO ingreso(primerNombre,  primerApellido, segundoApellido, " +
+                    "unidad, tipoVehiculo, placaVehiculo, colorVehiculo,  fechaIngreso,  horaIngreso, horaSalida,segundoNombre, estado, fechaSalida )" +
+                    "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+>>>>>>> 658a0c122249caf362cff3de3da95bc28ad7dadd
             try(PreparedStatement statement = conection.prepareStatement(query)){
                 System.out.println("PreparedStatement creado correctamente.");
                 statement.setString(1, primmerNombre);
@@ -166,13 +180,19 @@ public class Conexion {
                 statement.setString(11, segundoNombre);
                 statement.setBoolean(12,estado);
                 statement.setDate(13, Date.valueOf(fechaSalida));
+<<<<<<< HEAD
                 statement.setInt(14, idVisitante);
+=======
+>>>>>>> 658a0c122249caf362cff3de3da95bc28ad7dadd
                 System.out.println("Parámetros establecidos correctamente.");
                 int rowsInserted = statement.executeUpdate();
                 return rowsInserted > 0;
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 658a0c122249caf362cff3de3da95bc28ad7dadd
             }catch (SQLException e){
                 e.printStackTrace();
                 System.out.println("algo esta pasando");
@@ -183,6 +203,7 @@ public class Conexion {
 
 
     }
+<<<<<<< HEAD
     public static List<Map<String, Object>> obtenerInformacionIngresos (int idVistante){
         List<Map<String, Object>> resultList = new ArrayList<>();
         try(Connection connection = getConection();
@@ -231,6 +252,14 @@ public class Conexion {
                 }
             }
             return resultList;
+=======
+    public static ResultSet obtenerInformacionVisitante (String numeroDocumento){
+        try(Connection connection = getConection();
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM visitantes WHERE numeroDocumento=?")){
+            statement.setString(1, numeroDocumento);
+            ResultSet resultSet = statement.executeQuery();
+            return resultSet;
+>>>>>>> 658a0c122249caf362cff3de3da95bc28ad7dadd
         }catch (SQLException e){
             e.printStackTrace();
             System.err.println("Error al ejecutar la consulta: " + e.getMessage());
@@ -239,6 +268,7 @@ public class Conexion {
 
 
     }
+<<<<<<< HEAD
     public static boolean actualzarEstadoIngreso(int idVisitante){
         try(Connection connection = getConection();
             PreparedStatement statement = connection.prepareStatement("UPDATE ingreso SET estado = false WHERE idVisitante = ? AND estado = true") ){
@@ -252,4 +282,6 @@ public class Conexion {
         }
 
     }
+=======
+>>>>>>> 658a0c122249caf362cff3de3da95bc28ad7dadd
 }

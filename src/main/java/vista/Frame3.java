@@ -1,5 +1,6 @@
 package vista;
 
+<<<<<<< HEAD
 import datos.Conexion;
 
 import javax.swing.*;
@@ -11,6 +12,12 @@ import java.util.List;
 import java.util.Map;
 
 import static datos.Conexion.*;
+=======
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+>>>>>>> 658a0c122249caf362cff3de3da95bc28ad7dadd
 
 public class Frame3 extends JFrame {
     public Lamina4 lamina4;
@@ -125,7 +132,10 @@ public class Frame3 extends JFrame {
             revalidate();
             repaint();
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 658a0c122249caf362cff3de3da95bc28ad7dadd
         }
     }
         public  class LaminaRegistrarIngresos extends JPanel {
@@ -136,6 +146,7 @@ public class Frame3 extends JFrame {
             }
         }
         public class LaminaHistorialIngresos extends JPanel {
+<<<<<<< HEAD
 
             JTextField ingresoCedula;
             public LaminaHistorialIngresos() {
@@ -229,6 +240,10 @@ public class Frame3 extends JFrame {
                     System.err.println("Error general: " + ex.getMessage());
                     JOptionPane.showMessageDialog(null, "Error al registrar la salida. Detalles: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
                 }
+=======
+            public LaminaHistorialIngresos() { JLabel titulo = new JLabel("Lamina Historiasl Ingresos");
+                add(titulo);
+>>>>>>> 658a0c122249caf362cff3de3da95bc28ad7dadd
             }
         }
         public class LaminaAgendamientoIngresos extends JPanel {
@@ -237,6 +252,7 @@ public class Frame3 extends JFrame {
                 add(titulo);
             }
         }
+<<<<<<< HEAD
         public static class LaminaVacia extends JPanel{
             public LaminaVacia() {
                 setLayout(null);
@@ -260,6 +276,12 @@ public class Frame3 extends JFrame {
                 add(titulo2);
                 add(titulo3);
                 add(titulo4);
+=======
+        public class LaminaVacia extends JPanel{
+            public LaminaVacia() {
+                JLabel titulo = new JLabel("Lamina vacia ");
+                add(titulo);
+>>>>>>> 658a0c122249caf362cff3de3da95bc28ad7dadd
             }
         }
 
